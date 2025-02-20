@@ -5,7 +5,7 @@ span,
 applet,
 object,
 iframe,
-h1,
+h1, 
 h2,
 h3,
 h4,
@@ -233,7 +233,8 @@ nav button {
     position: relative;
     background-color: rgba(0, 0, 0, 0);
     cursor: pointer;
-    border: none
+    border: none;
+    right: 20px;
 }
 
 nav button span {
@@ -267,7 +268,7 @@ nav button span:last-of-type {
     background: none;
     border: none;
     cursor: pointer;
-    position: relative;
+    position: fixed;
 }
 
 #burger-icon span {
@@ -278,7 +279,7 @@ nav button span:last-of-type {
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* Animation en croix */
+
 #burger-icon.active span:nth-child(1) {
     transform: translateY(10px) rotate(45deg);
 }
@@ -289,16 +290,17 @@ nav button span:last-of-type {
     transform: translateY(-10px) rotate(-45deg);
 }
 
-/* Menu caché */
 #burger-menu {
-    position: absolute;
-    top: 60px;
+    position: fixed;
+    top: 80px;
     right: 0;
     width: 200px;
     background: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     padding: 10px;
     display: none;
+    background: radial-gradient(circle at bottom left, #ED4621 0%, #A11368 100%);
+    border-radius: 10%;
 }
 
 #burger-menu ul {
@@ -804,8 +806,7 @@ main section h3 {
     }
     nav button {
         position: absolute;
-        top: 20px;  /* Distance du haut */
-        right: 20px; /* Distance de la droite */
+        right: 20px;
         width: 50px;
         height: 42px;
         background-color: transparent;

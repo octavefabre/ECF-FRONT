@@ -9,13 +9,13 @@
         content="La convention du jeu vidéo la plus célèbre des Hauts-de-France sera de retour les 24, 25, 26, 27 et 28 février prochains ! Êtes vous prêt.e.s ?">
     <link rel="icon" type="image/x-icon" href="./src/icons/favicon.ico">
     <link rel="stylesheet" href="./webfiles/css/build/pages/home.css">
-    <script src="script.js" defer></script>
+    <script src="./webfiles/css/script.js" defer></script>
     <script src="./webfiles/css/burger.js"></script>
     <title>Soissons Game Show - L'événement signe son grand retour après 7 ans d'absence !</title>
 </head>
 
 <body>
-    <header>
+    <header> 
         <nav>
             <a href="#" aria-label="En cliquant, vous serez redirigé vers la page d'accueil du Soissons Game Show"
                 title="En cliquant, vous serez redirigé vers la page d'accueil du Soissons Game Show">
@@ -29,10 +29,12 @@
             </button>
             <nav id="burger-menu" class="hidden">
                 <ul>
-                    <li><a href="#">Accueil</a></li>
-                    <li><a href="#">Événements</a></li>
-                    <li><a href="#">Invités</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#intro">Accueil</a></li>
+                    <li><a href="#jv-and-tcg">Jeux Vidéo & TCG</a></li>
+                    <li><a href="#guests">Invités</a></li>
+                    <li><a href="#cosplay">Cosplay</a></li>
+                    <li><a href="#partners">Partenaires</a></li>
+                    <li><a href="#contact-us">Contact</a></li>
                 </ul>
             </nav>
         </nav>
@@ -212,6 +214,7 @@
                     <h2>Nous contacter</h2>
                     <p>À la recherche d’informations qui ne figurent pas sur notre site internet ou besoin d’un
                         renseignement complémentaire&nbsp;?</p>
+
                     <form action="#" id="myForm" method="POST">
                         <fieldset>
                             <input type="text" id="lastName" name="lastname" placeholder="Votre nom*">
@@ -226,12 +229,13 @@
                             <label for="agreed">En soumettant ce formulaire, j'admets être en accord avec les mentions
                                 légales.</label>
                         </fieldset>
-                        <button type="submit">
+                        <button type="submit" id="submitBtn" disabled>
                             <span class="content">
                                 <span>Envoyer le message</span>
                                 <img src="./src/icons/plane.webp" alt="Icône d'avion symbolisant l'envoi d'un mail">
                             </span>
                         </button>
+
                     </form>
                 </section>
                 <section id="location">

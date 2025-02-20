@@ -1,90 +1,148 @@
 const form = document.querySelector("#myForm");
-const nameInput = document.querySelector("#name");
-const ageInput = document.querySelector("#age");
-const passwordInput = document.querySelector("#password");
-const paysSelect = document.querySelector("#pays");
-const legalSelect = document.querySelector("#legal");
+const lastNameInput = document.querySelector("#lastName");
+const firstNameInput = document.querySelector("#firstName");
+const emailInput = document.querySelector("#email");
+const objetInput = document.querySelector("#objet");
+const messageInput = document.querySelector("#message");
+const agreedSelect = document.querySelector("#agreed");
 const submitBtn = document.querySelector("#submitBtn");
-let nameImputOK = false;
-let ageInputOK = false;
-let passwordInputOK = false;
-let paysImputOK = false;
-let legalImputOk = false;
+
+let lastNameImputOK = false;
+let firstNameInputOK = false;
+let emailInputOK = false;
+let objetImputOK = false;
+let messageImputOk = false;
 function disableButton() {
-  console.log(paysImputOK);
   if (
-    nameImputOK &&
-    ageInputOK &&
-    passwordInputOK &&
-    paysImputOK
+    firstNameInputOK &&
+    lastNameInput &&
+    emailInputOK &&
+    objetImputOK &&
+    messageImputOk &&
+    agreedSelect.checked
   ) {
     submitBtn.disabled = false;
   } else {
     submitBtn.disabled = true;
   }
 }
-nameInput.addEventListener("input", function () {
-  if (nameInput.value === "") {
-    console.log("Le champ nom ne peut pas être vide.");
-    nameImputOK = false;
+firstNameInput.addEventListener("input", function () {
+  if (firstNameInput.value === "") {
+    const erreurFirstName = document.createElement("p");
+    erreurFirstName.textContent = "Vous devez saisir un prénom.";
+    erreurFirstName.id = "erreurFirstName";
+    if (form.contains(document.querySelector("#erreurFirstName"))) {
+      document.querySelector("#erreurFirstName").remove();
+    }
+    form.appendChild(erreurFirstName);
+    firstNameInputOK = false;
   } else {
-    nameImputOK = true;
+    if (form.contains(document.querySelector("#erreurFirstName"))) {
+      document.querySelector("#erreurFirstName").remove();
+    }
+
+    firstNameInputOK = true;
   }
   disableButton();
 });
-ageInput.addEventListener("input", function () {
-  if (ageInput.value < 18) {
-    // Dans un premier temps, on crée un élément HTML (ici un paragraphe)
-    const erreurAge = document.createElement("p");
 
-    // Dans un second temps on lui ajoute du contenu textuel
-    erreurAge.textContent = "Vous devez avoir au moins 18 ans.";
-
-    // On spécifie un ID pour cet élément
-    erreurAge.id = "erreurAge";
-
-    // En amont de toute étape : on supprime l'ancien élément si il existe dans le formulaire
-    if(form.contains(document.querySelector("#erreurAge"))){
-      document.querySelector("#erreurAge").remove();
+lastNameInput.addEventListener("input", function () {
+  if (lastNameInput.value === "") {
+    const erreurLastName = document.createElement("p");
+    erreurLastName.textContent = "Vous devez saisir un nom.";
+    erreurLastName.id = "erreurLastName";
+    if (form.contains(document.querySelector("#erreurLastName"))) {
+      document.querySelector("#erreurLastName").remove();
     }
-
-    // Quoi qu'il arrive, on injecte l'élément dans le formulaire
-    form.appendChild(erreurAge);
-
-    // Pour vous débugger dans la console au cas ou...
-    console.log("Vous devez avoir au moins 18 ans.");
-    ageInputOK = false;
-
-    // Le cas contraire: c'est que l'utilisateur a saisi 18 ans ou plus
+    form.appendChild(erreurLastName);
+    lastNameImputOK = false;
   } else {
-
-    // Si la notification de l'age (sous forme de paragraphe) existait dans le formulaire, on le supprime
-    if(form.contains(document.querySelector("#erreurAge"))){
-      document.querySelector("#erreurAge").remove();
+    if (form.contains(document.querySelector("#erreurLastName"))) {
+      document.querySelector("#erreurLastName").remove();
     }
 
-    ageInputOK = true;
+    lastNameImputOK = true;
   }
   disableButton();
-});
-passwordInput.addEventListener("input", function () {
-  if (passwordInput.value.length < 8) {
-    console.log("Le mot de passe doit contenir au moins 8 caractères.");
-    passwordInputOK = false;
+}
+);
+emailInput.addEventListener("input", function () {
+  if (emailInput.value === "") {
+    const erreurEmail = document.createElement("p");
+    erreurEmail.textContent = "Vous devez saisir une adresse email.";
+    erreurEmail.id = "erreurEmail";
+    if (form.contains(document.querySelector("#erreurEmail"))) {
+      document.querySelector("#erreurEmail").remove();
+    }
+    form.appendChild(erreurEmail);
+    emailInputOK = false;
   } else {
-    passwordInputOK = true;
+    if (form.contains(document.querySelector("#erreurEmail"))) {
+      document.querySelector("#erreurEmail").remove();
+    }
+
+    emailInputOK = true;
+  }
+  disableButton();
+}
+);
+objetInput.addEventListener("input", function () {
+  if (objetInput.value === "") {
+    const erreurObjet = document.createElement("p");
+    erreurObjet.textContent = "Vous devez saisir un objet.";
+    erreurObjet.id = "erreurObjet";
+    if (form.contains(document.querySelector("#erreurObjet"))) {
+      document.querySelector("#erreurObjet").remove();
+    }
+    form.appendChild(erreurObjet);
+    objetImputOK = false;
+  } else {
+    if (form.contains(document.querySelector("#erreurObjet"))) {
+      document.querySelector("#erreurObjet").remove();
+    }
+
+    objetImputOK = true;
+  }
+  disableButton();
+}
+);
+messageInput.addEventListener("input", function () {
+  if (messageInput.value === "") {
+    const erreurMessage = document.createElement("p");
+    erreurMessage.textContent = "Vous devez saisir un message.";
+    erreurMessage.id = "erreurMessage";
+    if (form.contains(document.querySelector("#erreurMessage"))) {
+      document.querySelector("#erreurMessage").remove();
+    }
+    form.appendChild(erreurMessage);
+    messageImputOk = false;
+  } else {
+    if (form.contains(document.querySelector("#erreurMessage"))) {
+      document.querySelector("#erreurMessage").remove();
+    }
+
+    messageImputOk = true;
+  }
+  disableButton();
+}
+);
+agreedSelect.addEventListener("change", function () {
+  if (!agreedSelect.checked) {
+    const erreurAgreed = document.createElement("p");
+    erreurAgreed.textContent = "Vous devez accepter les conditions d'utilisation.";
+    erreurAgreed.id = "erreurAgreed";
+    if (form.contains(document.querySelector("#erreurAgreed"))) {
+      document.querySelector("#erreurAgreed").remove();
+    }
+    form.appendChild(erreurAgreed);
+  } else {
+    if (form.contains(document.querySelector("#erreurAgreed"))) {
+      document.querySelector("#erreurAgreed").remove();
+    }
     disableButton();
   }
-});
-paysSelect.addEventListener("change", function () {
-  if (paysSelect.value === "") {
-    console.log("Veuillez sélectionner une option.");
-    paysImputOK = false;
-  } else {
-    paysImputOK = true;
-  }
-  disableButton();
-});
-form.addEventListener("submit", function () {
-  alert("Vous avez sélectionné : " + paysSelect.value);
-});
+}
+);
+
+
+

@@ -6,4 +6,4 @@ document.addEventListener("DOMContentLoaded", function () {
         burgerIcon.classList.toggle("active");
         burgerMenu.classList.toggle("active");
     });
-});
+}); 
