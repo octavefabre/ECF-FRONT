@@ -1,9 +1,1 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const burgerIcon = document.getElementById("burger-icon");
-    const burgerMenu = document.getElementById("burger-menu");
-
-    burgerIcon.addEventListener("click", function () {
-        burgerIcon.classList.toggle("active");
-        burgerMenu.classList.toggle("active");
-    });
-}); 
+document.addEventListener("DOMContentLoaded",function(){const a=document.getElementById("burger-icon");const b=document.getElementById("burger-menu");a.addEventListener("click",function(){a.classList.toggle("active");b.classList.toggle("active")})});
